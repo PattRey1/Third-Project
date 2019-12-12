@@ -15,7 +15,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="uk-navbar-container" uk-navbar="true">
+    <nav className="uk-navbar-container custom-nav" uk-navbar="true">
       {user._id ? (
         <div className="uk-navbar-left">
           <ul className="uk-navbar-nav">

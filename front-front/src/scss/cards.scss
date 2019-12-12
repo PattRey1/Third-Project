@@ -1,58 +1,44 @@
-#site-head {
-  padding: 10px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  background-color: white;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-#site-foot {
-  position: fixed;
-  z-index: 3;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font-size: 0.8rem;
-}
-.uk-section-xsmall {
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-}
-.uk-logo img {
-  width: 50px;
-}
-.spacer {
-  height: 60px;
-}
 .uk-card {
   border-top: 2px solid;
   position: relative;
   transition: box-shadow 0.15s ease-out;
   border-radius: 3px;
+  &:hover {
+    box-shadow: 0 0 0 7px rgba(0, 0, 0, 0.045);
+  }
+  .uk-inline {
+    z-index: 99;
+  }
+  .uk-card-footer {
+    padding: 0.55rem 1rem;
+  }
+  .uk-card-header {
+    padding: 0.55rem 1rem;
+  }
+  .cat-txt {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
+  }
 }
-.uk-card:hover {
-  box-shadow: 0 0 0 7px rgba(0, 0, 0, 0.045);
+.card-art .custom-art-card {
+  width: 370px;
 }
-.uk-card .uk-inline {
-  z-index: 99;
+
+.footer {
+  background-color: $lilac;
 }
-.uk-card .uk-card-footer {
-  padding: 0.55rem 1rem;
-}
-.uk-card .uk-card-header {
-  padding: 0.55rem 1rem;
-}
-.uk-card .cat-txt {
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.01em;
-}
+
 .nature-card .uk-card {
   border-top-color: #1e87f0;
 }
+
+.pills-home .uk-subnav-pill > .uk-active > a {
+  background-color: $redish !important;
+  color: #fff;
+}
+
 .uk-subnav li a {
   border-radius: 3px;
 }
