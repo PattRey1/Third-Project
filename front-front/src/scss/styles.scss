@@ -1,3 +1,8 @@
+.custom-nav {
+  height: 100px;
+  background-color: $baby-pink !important;
+}
+
 .top-wrap::before,
 .overlay-wrap::before {
   position: absolute;
@@ -17,9 +22,9 @@
 
 .main-info {
   background-color: $bluish;
-  padding: 30px;
+  padding: 70px 50px;
   .main-btn {
-    background-color: $lilac !important;
+    background-color: $baby-pink !important;
     color: $bluish !important;
   }
 }
@@ -35,6 +40,10 @@
     -webkit-transform: scale(1.5); /* Safari 3-8 */
     transform: scale(1.5);
   }
+}
+
+.img-art {
+  width: 70%;
 }
 
 .uk-subnav-pill > * > :first-child {
@@ -97,4 +106,8 @@
 
 #header.uk-sticky-below {
   box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.07);
+}
+
+.footer {
+  background-color: $baby-pink;
 }

@@ -4,7 +4,7 @@ import UIkit from "uikit";
 const Home = () => {
   return (
     <div>
-      <div className=" uk-position-relative uk-light ">
+      <div className="uk-position-relative uk-light ">
         <div className="uk-cover-container uk-light uk-flex uk-flex-middle top-wrap-height">
           <div
             className="uk-container uk-flex-auto top-container uk-position-relative uk-margin-medium-top"
@@ -96,12 +96,14 @@ const Home = () => {
                   </p>
                   <div className="uk-grid uk-child-width-1-2@s" data-uk-grid>
                     <div>
-                      <h4>Expositora</h4>
+                      <h4>
+                        <span data-uk-icon="icon: happy"></span> Expositora
+                      </h4>
                       <p>Alicia Delicia</p>
                     </div>
                     <div>
                       <h4>
-                        Fecha <span class="fas fa-calendar-week"></span>
+                        <span data-uk-icon="icon: calendar"></span> Fecha
                       </h4>
 
                       <p>02/01/2020</p>
@@ -136,11 +138,15 @@ const Home = () => {
                   </p>
                   <div className="uk-grid uk-child-width-1-2@s" data-uk-grid>
                     <div>
-                      <h4>Expositora</h4>
+                      <h4>
+                        <span data-uk-icon="icon: happy"></span> Expositora
+                      </h4>
                       <p>Dra. Fabiola Trejo</p>
                     </div>
                     <div>
-                      <h4>Fecha</h4>
+                      <h4>
+                        <span data-uk-icon="icon: calendar"></span> Fecha
+                      </h4>
                       <p>05/02/2020</p>
                     </div>
                     <div>
@@ -179,11 +185,15 @@ const Home = () => {
                   </p>
                   <div className="uk-grid uk-child-width-1-2@s" data-uk-grid>
                     <div>
-                      <h4>Expositora</h4>
+                      <h4>
+                        <span data-uk-icon="icon: happy"></span> Expositora
+                      </h4>
                       <p>Dra. Claudette Rivero</p>
                     </div>
                     <div>
-                      <h4>Fecha</h4>
+                      <h4>
+                        <span data-uk-icon="icon: calendar"></span> Fecha
+                      </h4>
                       <p>13/01/2020</p>
                     </div>
                     <div>

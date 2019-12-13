@@ -54,4 +54,8 @@ const auth = require("./routes/auth");
 
 app.use("/api", auth);
 
+app.use("*", (req, res) => {
+  res.sendFile(path.join(_dirname, "public", "index.html"));
+});
+
 module.exports = app;

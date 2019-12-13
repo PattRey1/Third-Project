@@ -23,7 +23,7 @@ const Router = () => (
       <Route exact path="/blog">
         <Blog />
       </Route>
-      <Route exact path="/blog">
+      <Route exact path="/articulo">
         <Article />
       </Route>
       <Route exact path="/eroteca">

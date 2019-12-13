@@ -1,7 +1,7 @@
 import React from "react";
 import Router from "./Router";
 import "./scss/App.scss";
-import Nav from "./componentes/Auth/Nav";
+import Nav from "./componentes/common/Nav";
 import Footer from "./componentes/common/Footer";
 // import "antd/dist/antd.css";
 

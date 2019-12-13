@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { AppContext } from "../../AppContext";
 import { logout } from "../../services/auth";
 import { useHistory } from "react-router-dom";
+import { imgs } from "../../assets/imgs";
 
 const Nav = () => {
   const { user, resetContext } = useContext(AppContext);
@@ -16,6 +17,7 @@ const Nav = () => {
 
   return (
     <nav className="uk-navbar-container custom-nav" uk-navbar="true">
+      <img src={imgs.logo} />
       {user._id ? (
         <div className="uk-navbar-left">
           <ul className="uk-navbar-nav">
