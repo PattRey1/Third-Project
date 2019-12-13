@@ -9,7 +9,7 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/back-back", { useNewUrlParser: true })
+  .connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -55,7 +55,7 @@ const auth = require("./routes/auth");
 app.use("/api", auth);
 
 app.use("*", (req, res) => {
-  res.sendFile(path.join(_dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 module.exports = app;
