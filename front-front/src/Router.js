@@ -6,34 +6,36 @@ import Blog from "./views/Blog";
 import Eroteca from "./views/Eroteca";
 import Event from "./views/Event";
 import Home from "./views/Home";
+import Profile from "./views/Profile";
 import Article from "./views/Article";
 
 const Router = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route exact path="/login">
-        <Login />
-      </Route>
-      <Route exact path="/signup">
-        <Signup />
-      </Route>
-      <Route exact path="/blog">
-        <Blog />
-      </Route>
-      <Route exact path="/articulo">
-        <Article />
-      </Route>
-      <Route exact path="/eroteca">
-        <Eroteca />
-      </Route>
-      <Route exact path="/event">
-        <Event />
-      </Route>
-    </Switch>
-  </BrowserRouter>
+  <Switch>
+    <Route exact path="/">
+      <Home />
+    </Route>
+    <Route path="/login">
+      <Login />
+    </Route>
+    <Route path="/signup">
+      <Signup />
+    </Route>
+    <Route path="/blog">
+      <Blog />
+    </Route>
+    <Route path="/articulo">
+      <Article />
+    </Route>
+    <Route path="/eroteca">
+      <Eroteca />
+    </Route>
+    <Route path="/event">
+      <Event />
+    </Route>
+    <Route>
+      <Profile />
+    </Route>
+  </Switch>
 );
 
 export default Router;

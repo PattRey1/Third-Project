@@ -4,7 +4,6 @@ import UIkit from "uikit";
 const Blog = () => {
   return (
     <div>
-      <div className="uk-container"></div>
       <section className="uk-section uk-section-small">
         <div className="uk-container">
           <div className="uk-height-large uk-cover-container uk-border-rounded">

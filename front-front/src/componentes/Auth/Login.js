@@ -13,6 +13,8 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(form);
+
     login(form)
       .then(res => {
         const { user, token } = res.data;

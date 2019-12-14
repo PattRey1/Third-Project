@@ -6,7 +6,7 @@ const AuthForm = ({
   email = "",
   usernameOrEmail = "",
   password = "",
-  confirmPass = "",
+  confirmPassword = "",
   username = "",
   handleChange
 }) => (
@@ -23,8 +23,8 @@ const AuthForm = ({
         ></span>
         <input
           onChange={handleChange}
-          name={action === "signup" ? "email" : "usernameOrEmail"}
-          value={action === "signup" ? email : usernameOrEmail}
+          name={action === "signup" ? "email" : "email"}
+          value={action === "signup" ? "email" : email}
           className="uk-input"
           type={action === "signup" ? "email" : "text"}
         />
@@ -67,8 +67,8 @@ const AuthForm = ({
           <span className="uk-form-icon" uk-icon="icon: lock"></span>
           <input
             onChange={handleChange}
-            name="confirmPass"
-            value={confirmPass}
+            name="confirmPassword"
+            value={confirmPassword}
             className="uk-input"
             type="password"
             autoComplete="on"

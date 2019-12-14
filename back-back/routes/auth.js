@@ -5,9 +5,6 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 /* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
-});
 
 router.post("/login", (req, res, next) => {
   const { password, email } = req.body;

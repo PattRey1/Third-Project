@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import UIkit from "uikit";
 
@@ -221,23 +221,8 @@ const Home = () => {
             data-uk-grid
             data-uk-scrollspy="target: > div; delay: 150; cls: uk-animation-slide-bottom-medium"
           >
-            {/* <div class="uk-text-center">
-              <img
-                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                data-src="img/marketing-3.svg"
-                data-uk-img
-                alt="Image"
-              />
-              <h4 class="uk-margin-small-bottom uk-margin-top uk-margin-remove-adjacent">
-                Lorem ipsum dolor sit amet
-              </h4>
-              <p>
-                24/7 support. We’re always here for you no matter what time of
-                day.
-              </p>
-            </div> */}
             {[0, 1, 2].map((item, i) => (
-              <NavLink>
+              <Link>
                 <div key={i} class="uk-text-center">
                   <img
                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
@@ -253,23 +238,8 @@ const Home = () => {
                     of day.
                   </p>
                 </div>
-              </NavLink>
+              </Link>
             ))}
-            {/* <div class="uk-text-center">
-              <img
-                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                data-src="img/marketing-5.svg"
-                data-uk-img
-                alt="Image"
-              />
-              <h4 class="uk-margin-small-bottom uk-margin-top uk-margin-remove-adjacent">
-                Lorem ipsum dolor sit amet
-              </h4>
-              <p>
-                24/7 support. We’re always here for you no matter what time of
-                day.
-              </p>
-            </div> */}
           </div>
         </div>
       </section>

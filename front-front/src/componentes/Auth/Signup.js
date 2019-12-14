@@ -15,6 +15,7 @@ const Signup = () => {
     e.preventDefault();
     signup(form)
       .then(res => {
+        console.log(res);
         const { user, token } = res.data;
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("token", token);

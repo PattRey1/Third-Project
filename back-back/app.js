@@ -7,6 +7,7 @@ const favicon = require("serve-favicon");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const cors = require("cors");
 
 mongoose
   .connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -31,6 +32,11 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(
+  cors({
+    origin: ["http://localhost:3001"]
+  })
+);
 
 // Express View engine setup
 
@@ -51,7 +57,14 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 app.locals.title = "Express - Generated with IronGenerator";
 
 const auth = require("./routes/auth");
+const post = require("./routes/post");
+const event = require("./routes/event");
+const comment = require("./routes/comments");
+
 app.use("/api", auth);
+app.use("/api/post", post);
+app.use("/api/event", event);
+app.use("/api/comment", comment);
 
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
