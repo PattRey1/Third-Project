@@ -24,7 +24,7 @@ const AuthForm = ({
         <input
           onChange={handleChange}
           name={action === "signup" ? "email" : "email"}
-          value={action === "signup" ? "email" : email}
+          value={action === "signup" ? email : email}
           className="uk-input"
           type={action === "signup" ? "email" : "text"}
         />

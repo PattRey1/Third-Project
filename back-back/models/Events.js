@@ -20,6 +20,14 @@ const eventsSchema = new Schema(
     },
     img: {
       type: String
+    },
+    avaliable: {
+      type: Boolean,
+      default: true
+    },
+    limit_person: {
+      default: 0,
+      required: true
     }
   },
   { timestamps: true }

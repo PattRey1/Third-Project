@@ -1,29 +1,30 @@
 const express = require("express");
 const router = express.Router();
-const Event = require("../models/Events");
+const Participants = require("../models/Partcipants");
 // const User = require("../models/User");
 
 /* GET home page */
 router.post("/create", (req, res, next) => {
-  Event.create({ ...req.body })
-    .then(event => {
+  Participants.create({ ...req.body })
+    .then(comment => {
       return res
         .status(200)
-        .json({ mensaje: "Tu comentario se posteo corrextamente" });
+        .json({ mensaje: "Tu registro se realizo con éxito" });
     })
     .catch(error => {
+      console.log("err", error);
       return res
         .status(404)
-        .json({ error: "Ocurrió un error al publicar tu comentario" });
+        .json({ error: "Ocurrió un error al registrarte para el evento" });
     });
 });
 router.delete("/delete", (req, res, next) => {
   let { owner_id } = req.body;
-  Event.findOneAndDelete({ _owner: owner_id })
+  Participants.findOneAndDelete({ _owner: owner_id })
     .then(comments => {
       return res
         .status(200)
-        .json({ mensaje: "Se borro con éxito tu comentario" });
+        .json({ mensaje: "Se anulo con éxito tu registro" });
     })
     .catch(error => {
       return res

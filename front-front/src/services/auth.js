@@ -1,8 +1,5 @@
 import axios from "axios";
-const isProduction = process.env.NODE_ENV === "production";
-const base_url = isProduction
-  ? "orgasmo.herokuapp.com"
-  : "http://localhost:3000/api";
+import { base_url } from "./baseURL";
 
 export const login = data => {
   return axios.post(`${base_url}/login`, data);
