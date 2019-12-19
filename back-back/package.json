@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "DEBUG=back-back:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www",
-    "deploy": "cd .. && git subtree push --prefix back-back heroku master"
+    "deploy": "cd .. && git subtree push --prefix back-back heroku master",
+    "builddeploy": "cd ../front-front/ && yarn react-scripts build && cp -rf build/* ../back-back/public && cd .. && git subtree push --prefix back-back heroku master"
   },
   "dependencies": {
     "bcrypt": "^3.0.7",
