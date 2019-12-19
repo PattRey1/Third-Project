@@ -14,11 +14,10 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(form, typeof form.email, typeof form.password);
+    console.log(form);
 
-    login({ email: form.email, password: from.password })
+    login(form)
       .then(res => {
-        console.log("resultado", res);
         const { user, token } = res.data;
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("token", token);
@@ -26,8 +25,7 @@ const Login = () => {
         push("/home");
       })
       .catch(res => {
-        console.log(res);
-        const { errormsg } = res.data;
+        const { errormsg } = res.response.data;
         UIkit.notification({
           message: `${errormsg}`,
           pos: "top-center",

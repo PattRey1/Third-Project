@@ -10,7 +10,6 @@ const Signup = () => {
   const { form, handleInput } = useForm();
   const { setUser } = useContext(AppContext);
   const { push } = useHistory();
-
   const handleSubmit = e => {
     e.preventDefault();
     signup(form)
@@ -37,7 +36,6 @@ const Signup = () => {
         });
       });
   };
-
   return (
     <div className="uk-section ">
       <h1 className="uk-text-center ">Registro</h1>
