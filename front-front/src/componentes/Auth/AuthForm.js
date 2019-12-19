@@ -10,7 +10,7 @@ const AuthForm = ({
   username = "",
   handleChange
 }) => (
-  <form className="uk-form-stacked" onSubmit={submit}>
+  <form className="uk-form-stacked uk-height-1-1" onSubmit={submit}>
     <div className="uk-margin">
       <label className="uk-form-label">
         {action === "signup" ? "Email" : "Email o Username"}
@@ -78,7 +78,7 @@ const AuthForm = ({
     ) : null}
 
     <div className="uk-container uk-flex uk-flex-center">
-      <button className="uk-button uk-button-primary" type="submit">
+      <button className="uk-button uk-button-primary regular-btn" type="submit">
         {action}
       </button>
     </div>

@@ -4,19 +4,30 @@ const Posts = require("../models/Posts");
 const uploader = require("../helpers/multer");
 
 router.post("/create", uploader.single("image"), (req, res, next) => {
+  console.log("aoy el back");
   let post = req.body;
-
+  let imgs = [
+    "https://res.cloudinary.com/dfykm9jdr/image/upload/v1576640402/how-to-get-over-your-fear-of-receiving-oral-sex_Prancheta-1-min-2_waigvn.png",
+    "https://res.cloudinary.com/dfykm9jdr/image/upload/v1576640401/cold-sore_herpes-2_bzwjgt.png",
+    "https://res.cloudinary.com/dfykm9jdr/image/upload/v1576640361/dirty-talk-2_vi4r85.png"
+  ];
   if (req.file) {
     const image = req.file.secure_url;
     post["image"] = image;
+  } else {
+    post["image"] = imgs[Math.floor(Math.random() * imgs.length)];
   }
-  Posts.create({ ...post })
+
+  console.log(post);
+
+  Posts.create(post)
     .then(post => {
       return res
         .status(200)
         .json({ mensaje: "Artículo publicado correctamente", post });
     })
     .catch(error => {
+      console.log("error", error);
       return res
         .status(404)
         .json({ error: "Ocurrió un error al publicar tu articulo" });

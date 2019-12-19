@@ -34,8 +34,9 @@ const Login = () => {
   };
 
   return (
-    <div className="uk-section">
-      <div className="uk-container uk-flex uk-flex-center">
+    <div className="uk-section " uk-height-viewport="expand: true">
+      <h1 className="uk-text-center uk-margin-medium-bottom">Entrar</h1>
+      <div className="uk-container uk-flex uk-flex-center uk-flex-middle">
         <AuthForm
           submit={handleSubmit}
           action="login"

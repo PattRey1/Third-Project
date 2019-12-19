@@ -26,7 +26,7 @@ const eventsSchema = new Schema(
       default: true
     },
     limit_person: {
-      default: 0,
+      type: Number,
       required: true
     }
   },

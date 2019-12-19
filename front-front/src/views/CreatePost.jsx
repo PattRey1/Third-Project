@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { createNewPost } from "../services/post";
 import { useHistory } from "react-router-dom";
 import useForm from "../hooks/useInputs";
 
-const Eroteca = () => {
+const CreatePost = () => {
   const [form, handleInputs] = useForm();
   const { push } = useHistory();
 
@@ -12,7 +12,7 @@ const Eroteca = () => {
 
     createNewPost(form)
       .then(res => {
-        push("/eroteca");
+        push("/blog");
         console.log("esto es la res", res);
       })
       .catch(err => console.log("este es el error", err));
@@ -20,8 +20,8 @@ const Eroteca = () => {
 
   return (
     <div>
-      <div className="uk-container">
-        <h1>Crear un post</h1>
+      <div className="uk-container uk-margin-medium-top">
+        <h1 className="uk-text-center">Cuéntanos tu historia</h1>
         <form className="uk-form-stacked" onSubmit={handleSubmit}>
           <div className="uk-margin">
             <label htmlFor="">Título del post</label>
@@ -30,7 +30,6 @@ const Eroteca = () => {
               className="uk-input"
               type="text"
               name="title"
-              placeholder="Input"
             />
           </div>
           <div className="uk-margin">
@@ -39,14 +38,19 @@ const Eroteca = () => {
               className="uk-textarea"
               name="description"
               rows="5"
-              placeholder="Textarea"
+              placeholder="Platícanos..."
             />
           </div>
-          <button type="submit">Enviar</button>
+          <button
+            className="uk-button uk-button-primary regular-btn uk-margin-top uk-align-right@m uk-margin-remove-adjacent"
+            type="submit"
+          >
+            Enviar >>
+          </button>
         </form>
       </div>
     </div>
   );
 };
 
-export default Eroteca;
+export default CreatePost;

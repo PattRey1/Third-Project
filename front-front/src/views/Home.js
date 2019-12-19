@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
-import UIkit from "uikit";
+import { imgs } from "../assets/imgs";
 
 const Home = () => {
   return (
@@ -212,7 +211,6 @@ const Home = () => {
       </div>
       <section class="uk-section uk-section-default">
         <div class="uk-container uk-container-xsmall uk-text-center uk-section uk-padding-remove-top">
-          <h5 class="principal-text">Blog</h5>
           <h2 class="uk-margin-remove uk-h1">Dime algo que no sepa...</h2>
         </div>
         <div class="uk-container">
@@ -221,25 +219,30 @@ const Home = () => {
             data-uk-grid
             data-uk-scrollspy="target: > div; delay: 150; cls: uk-animation-slide-bottom-medium"
           >
-            {[0, 1, 2].map((item, i) => (
-              <Link>
-                <div key={i} class="uk-text-center">
-                  <img
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                    data-src="img/marketing-4.svg"
-                    data-uk-img
-                    alt="Image"
-                  />
-                  <h4 class="uk-margin-small-bottom uk-margin-top uk-margin-remove-adjacent">
-                    Lorem ipsum dolor sit amet
-                  </h4>
-                  <p>
-                    24/7 support. We’re always here for you no matter what time
-                    of day.
-                  </p>
-                </div>
-              </Link>
-            ))}
+            <div class="uk-text-center">
+              <img src={imgs.vulva} alt="Image" />
+              <h4 class="uk-margin-small-bottom uk-margin-top uk-margin-remove-adjacent">
+                MILES DE VULVAS, TODAS BONITAS
+              </h4>
+              <p>
+                Las vulvas como las huellas dactilares, no hay ninguna igual a
+                la otra.
+              </p>
+            </div>
+            <div class="uk-text-center">
+              <img src={imgs.uno} alt="Image" />
+              <h4 class="uk-margin-small-bottom uk-margin-top uk-margin-remove-adjacent">
+                Comunicación ante todo.
+              </h4>
+              <p>Foreplay siempre </p>
+            </div>
+            <div class="uk-text-center">
+              <img src={imgs.finger} alt="Image" />
+              <h4 class="uk-margin-small-bottom uk-margin-top uk-margin-remove-adjacent">
+                Fingering yourself!
+              </h4>
+              <p>Si tu no te conoces, nadie lo hará.</p>
+            </div>
           </div>
         </div>
       </section>

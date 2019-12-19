@@ -22,15 +22,16 @@ const Nav = () => {
         <div className="uk-navbar-center">
           <ul className="uk-navbar-nav">
             <li className="">
-              <NavLink exact to="/eroteca">
-                Eroteca
+              <NavLink exact to="/">
+                Home
               </NavLink>
             </li>
             <li className="">
               <NavLink exact to="/blog">
-                Blog
+                Eroteca
               </NavLink>
             </li>
+
             <li className="">
               <NavLink exact to="/event">
                 Eventos

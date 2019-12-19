@@ -8,6 +8,8 @@ import Event from "./views/Event";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
 import Article from "./views/Article";
+import CreateEvent from "./views/CreateEvent";
+import CreatePost from "./views/CreatePost";
 
 const Router = () => (
   <Switch>
@@ -32,8 +34,14 @@ const Router = () => (
     <Route path="/event">
       <Event />
     </Route>
-    <Route>
+    <Route path="/profile">
       <Profile />
+    </Route>
+    <Route path="/creaevento">
+      <CreateEvent />
+    </Route>
+    <Route path="/creapost">
+      <CreatePost />
     </Route>
   </Switch>
 );

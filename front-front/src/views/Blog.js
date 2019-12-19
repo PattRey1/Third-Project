@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import UIkit from "uikit";
+import { AppContext } from "../AppContext";
+import { readPost } from "../services/post";
+import moment from "moment";
+import CreatePost from "../views/CreatePost";
 
 const Blog = () => {
+  const { posts, setPosts, user } = useContext(AppContext);
+  useEffect(() => {
+    // if (!user._id) {
+    //   push("/login");
+    //   UIkit.notification({
+    //     message: "No se puede perro",
+    //     status: "danger",
+    //     pos: "top-right"
+    //   });
+    // }
+    console.log("data asdsadas");
+    readPost()
+      .then(res => {
+        const { posts } = res.data;
+        console.log("data", res);
+        setPosts(posts);
+      })
+      .catch(err => console.log("err", err));
+  }, [setPosts]);
   return (
     <div>
       <section className="uk-section uk-section-small">
@@ -20,7 +43,7 @@ const Blog = () => {
                 </h1>
 
                 <a
-                  href="#"
+                  href="/articulo"
                   className="uk-button uk-button-default uk-margin-top"
                 >
                   Ver artículo completo
@@ -42,54 +65,55 @@ const Blog = () => {
                 <span>Latest News</span>
               </h4>
 
-              <article class=" uk-width-1-3 uk-margin-medium-right uk-card uk-card-default	uk-padding-small custom-art-card">
-                <header>
-                  <h2 class="uk-margin-remove-adjacent uk-text-bold uk-margin-small-bottom">
-                    <a
-                      title="Fusce facilisis tempus magna ac dignissim."
-                      class="uk-link-reset"
-                      href="#"
+              {posts.length
+                ? posts.map((item, i) => (
+                    <article
+                      key={i}
+                      class=" uk-width-1-3 uk-margin-small-right uk-card uk-card-default	uk-padding-small custom-art-card uk-margin-medium-top"
                     >
-                      Fusce facilisis tempus magna ac dignissim.
-                    </a>
-                  </h2>
-                  <p class="uk-article-meta">
-                    Written on March 23, 2019. Posted in <a href="#">Blog</a> |{" "}
-                    <span data-uk-icon="icon: future"></span> Takes 7 min
-                    reading.
-                  </p>
-                </header>
-                <figure>
-                  <img
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAEsCAYAAAA7Ldc6AAADuUlEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMA3p/4AAaxRls8AAAAASUVORK5CYII="
-                    data-src="https://picsum.photos/800/300/?random=1"
-                    width="800"
-                    height="300"
-                    alt="Alt text"
-                    className="lazy"
-                    data-uk-img
-                  />
-                </figure>
-                <p>
-                  UPDATE 24th October 15.10 BST — Vivamus sed consequat urna.
-                  Fusce vitae urna sed ante placerat iaculis. Suspendisse
-                  potenti. Pellentesque quis fringilla libero. In hac habitasse
-                  platea dictumst.
-                </p>
-                <p>
-                  Ultricies eget, tempor sit amet, ante. Donec eu libero sit
-                  amet quam egestas semper. Aenean ultricies mi vitae est.
-                  Mauris placerat eleifend leo.
-                </p>
-                <a
-                  href="#"
-                  title="Read More"
-                  className="uk-button uk-button-default uk-button-small"
-                >
-                  READ MORE
-                </a>
-              </article>
-              <article class="uk-width-1-3 uk-margin-medium-right uk-card uk-card-default uk-padding-small custom-art-card	">
+                      <header>
+                        <h2 class="uk-margin-remove-adjacent uk-text-bold uk-margin-small-bottom">
+                          <a
+                            title="Fusce facilisis tempus magna ac dignissim."
+                            class="uk-link-reset"
+                            href="#"
+                          >
+                            {item.title}
+                          </a>
+                        </h2>
+                        <p class="uk-article-meta">
+                          Creado el {moment(item.createdAt).format("DD MMM")}
+                        </p>
+                      </header>
+                      <figure>
+                        <img
+                          src={item.image}
+                          data-src="https://picsum.photos/800/300/?random=1"
+                          width="800"
+                          height="300"
+                          alt="Alt text"
+                          className="lazy"
+                          data-uk-img
+                        />
+                      </figure>
+                      <p className="uk-text-truncate">{item.description}</p>
+
+                      <a
+                        /**
+                         *  onclick={()=>push('/',item)
+                         */
+                        href="#"
+                        title="Read More"
+                        className="uk-button uk-button-default uk-button-small"
+                      >
+                        READ MORE
+                      </a>
+                    </article>
+                  ))
+                : ""}
+              <CreatePost />
+
+              {/* <article class="uk-width-1-3 uk-margin-medium-right uk-card uk-card-default uk-padding-small custom-art-card	">
                 <header>
                   <h2 class="uk-margin-remove-adjacent uk-text-bold uk-margin-small-bottom">
                     <a
@@ -182,7 +206,7 @@ const Blog = () => {
                 >
                   READ MORE
                 </a>
-              </article>
+              </article> */}
             </div>
           </div>
         </div>

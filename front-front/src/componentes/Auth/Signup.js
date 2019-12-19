@@ -39,8 +39,12 @@ const Signup = () => {
   };
 
   return (
-    <div className="uk-section">
-      <div className="uk-container uk-flex uk-flex-center">
+    <div className="uk-section ">
+      <h1 className="uk-text-center ">Registro</h1>
+      <div
+        className="uk-container uk-flex uk-flex-center uk-flex-middle "
+        uk-height-viewport="expand: true"
+      >
         <AuthForm
           submit={handleSubmit}
           action="signup"
