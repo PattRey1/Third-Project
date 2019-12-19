@@ -8,6 +8,7 @@ const User = require("../models/User");
 
 router.post("/login", (req, res, next) => {
   const { password, email } = req.body;
+  console.log(req.body, email, password);
   User.findOne({ email })
     .then(user => {
       const isValid = bcrypt.compareSync(password, user.password);

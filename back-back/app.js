@@ -34,7 +34,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:3001", "https://orgasmo.herokuapp.com/"]
+    origin: [
+      "http://localhost:3001",
+      "https://orgasmo.herokuapp.com/",
+      "http://localhost:3000"
+    ]
   })
 );
 

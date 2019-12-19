@@ -5,6 +5,7 @@ import { login } from "../../services/auth";
 import { AppContext } from "../../AppContext";
 import { useHistory } from "react-router-dom";
 import UIkit from "uikit";
+import { from } from "rxjs";
 
 const Login = () => {
   const { form, handleInput } = useForm();
@@ -13,10 +14,11 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(form);
+    console.log(form, typeof form.email, typeof form.password);
 
-    login(form)
+    login({ email: form.email, password: from.password })
       .then(res => {
+        console.log("resultado", res);
         const { user, token } = res.data;
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("token", token);
@@ -24,7 +26,8 @@ const Login = () => {
         push("/home");
       })
       .catch(res => {
-        const { errormsg } = res.response.data;
+        console.log(res);
+        const { errormsg } = res.data;
         UIkit.notification({
           message: `${errormsg}`,
           pos: "top-center",
