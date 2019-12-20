@@ -8,6 +8,7 @@ const User = require("../models/User");
 
 router.post("/login", (req, res, next) => {
   const { password, email } = req.body;
+  console.log(email);
   console.log(req.body, email, password);
   User.findOne({ email })
     .then(user => {
@@ -24,7 +25,7 @@ router.post("/login", (req, res, next) => {
           delete user._doc.password;
 
           if (error) return res.status(500).json({ error });
-          res.status(200).json({ user, token });
+          return res.status(200).json({ user, token });
         }
       );
     })
@@ -65,14 +66,14 @@ router.post("/signup", (req, res, next) => {
           console.log("holiii", error);
 
           if (error) return res.status(500).json({ error });
-          res.status(200).json({ user, token });
+          return res.status(200).json({ user, token });
         }
       );
     })
     .catch(error => {
       console.log("holiii", error);
 
-      res.status(404).json({ error, msg: "Error al crear tu usuario" });
+      return res.status(404).json({ error, msg: "Error al crear tu usuario" });
     });
 });
 

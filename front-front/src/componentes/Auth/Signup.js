@@ -10,11 +10,11 @@ const Signup = () => {
   const { form, handleInput } = useForm();
   const { setUser } = useContext(AppContext);
   const { push } = useHistory();
+
   const handleSubmit = e => {
     e.preventDefault();
     signup(form)
       .then(res => {
-        console.log(res);
         const { user, token } = res.data;
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("token", token);
@@ -27,11 +27,10 @@ const Signup = () => {
         });
       })
       .catch(res => {
-        const { errormsg } = res.response.data;
-        console.log(res.response.data);
+        const { error } = res.response.data;
         UIkit.notification({
-          message: `${errormsg}`,
-          pos: "top-center",
+          message: `<span uk-icon='close'></span> ${error}`,
+          pos: "top-right",
           status: "danger"
         });
       });
